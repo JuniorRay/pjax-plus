@@ -1,9 +1,9 @@
-/**
+﻿/**
  * Copyright 2012, Chris Wanstrath
  * Released under the MIT License
  * https://github.com/defunkt/jquery-pjax
  * @author alter by JuniorRay ，China
- * @URl https://github.com/JuniorRay/Solving-the-JS-failure-of-Pjax
+ * @URL https://github.com/JuniorRay/Solving-the-JS-failure-of-Pjax
  * @description Solving-the-JS-failure-of-Pjax
  * @date 2019-9-12
  **/
@@ -32,7 +32,8 @@
 //
 // Returns the jQuery object
     function fnPjax(selector, container, options) {
-        options = optionsFor(container, options)
+        // alert("fnPjax")
+        // options = optionsFor(container, options)
         return this.on('click.pjax', selector, function (event) {
             var opts = options
             if (!opts.container) {
@@ -168,6 +169,7 @@
 //
 // Returns whatever $.ajax returns.
     function pjax(options) {
+        // alert("pjax");
         options = $.extend(true, {}, $.ajaxSettings, pjax.defaults, options)
 
         if ($.isFunction(options.url)) {
@@ -212,6 +214,16 @@
             if (settings.type !== 'GET') {
                 settings.timeout = 0
             }
+
+            /**
+             * @author JuniorRay
+             * @date 2020年2月19日
+             * @description 修改pjax源码添加xhr请求头配置便于个性化操作
+             * **/
+            if(options.xhrRequestHead){
+                xhr.setRequestHeader(options.xhrRequestHead, 'true')
+            }
+            // alert(options.xhrRequestHead);
 
             xhr.setRequestHeader('X-PJAX', 'true')
             xhr.setRequestHeader('X-PJAX-Container', options.container)
@@ -899,8 +911,8 @@
 //
 // Returns nothing.
     function enable() {
-        $.fn.pjax = fnPjax
-        $.pjax = pjax
+        $.fn.pjax = fnPjax;/**$(document).pjax(selector, [container], options)使用时调用**/
+        $.pjax = pjax;/**$.pjax({url: url , container: container})调用会走这里;**/
         $.pjax.enable = $.noop
         $.pjax.disable = disable
         $.pjax.click = handleClick
