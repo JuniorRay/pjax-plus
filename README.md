@@ -34,6 +34,8 @@ Download and include `jquery.pjax.js` in your web page:
 ```
 curl -LO https://raw.github.com/defunkt/jquery-pjax/master/jquery.pjax.js
 ```
+或者：引入
+<script src="#(BASE_PATH??)/assets/js/jquery.pjax.js"></script>
 
 ## Usage
 
