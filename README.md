@@ -395,7 +395,7 @@ Deploying a deploy, bumping the version constant to force clients to do a full r
     });
     
     
-}
+```
 
 
 通过xhrRequestHead通过ssr服务端渲染不同的布局，在pjax的基础上精细操作
@@ -405,7 +405,7 @@ Deploying a deploy, bumping the version constant to force clients to do a full r
 示范：
 
 
-
+```javascript
 
 $(function(){
 
