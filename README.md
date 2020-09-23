@@ -364,7 +364,7 @@ Deploying a deploy, bumping the version constant to force clients to do a full r
 
 
 
-
+```javascript
  /**
  
  
@@ -580,7 +580,7 @@ function sendPjax(url, container, xhrRequestHead) {
     
 }
 
-
+```
 
 
 
